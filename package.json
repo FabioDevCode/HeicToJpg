@@ -1,15 +1,14 @@
 {
   "name": "convertheic",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Convert images HEIC to JPG",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Fabio R. LOPES",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
     "fs-extra": "^11.1.1",
     "heic-convert": "^1.2.4"
   }

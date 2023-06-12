@@ -1,9 +1,10 @@
 const fs = require('fs-extra');
+const path = require('path');
 const { promisify } = require('util');
 const convert = require('heic-convert');
 
-const INPUT = './HEIC/';
-const OUTPUT = './JPG/';
+const INPUT = path.resolve(__dirname, 'HEIC');
+const OUTPUT = path.resolve(__dirname, 'JPG');
 let nbfile = 0;
 let nbMaxFile;
 
@@ -37,7 +38,7 @@ const convertHeicToJpg = async(files) => {
     const filename = files[0];
 
     try {
-        const inputBuffer = await promisify(fs.readFile)(INPUT+filename);
+        const inputBuffer = await promisify(fs.readFile)(INPUT+'/'+filename);
 
         if(!inputBuffer) {
             throw err;
@@ -52,7 +53,7 @@ const convertHeicToJpg = async(files) => {
             throw err;
         }
 
-        await promisify(fs.writeFile)(`${OUTPUT+filename.split('.')[0]}.jpg`, outputBuffer);
+        await promisify(fs.writeFile)(`${OUTPUT+'/'+filename.split('.')[0]}.jpg`, outputBuffer);
 
         nbfile++;
         console.log(`${filename.split('.')[0]} convertie en JPG - ${nbfile}/${nbMaxFile}`);
