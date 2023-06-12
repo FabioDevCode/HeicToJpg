@@ -1,0 +1,1 @@
+Dossier ou déposer les images/photos au format .heic
